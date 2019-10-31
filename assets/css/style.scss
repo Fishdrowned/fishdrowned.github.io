@@ -8,9 +8,16 @@ code{font-family:Consolas,Lucida Sans,Monaco,Lucida Console,Terminal,monospace;t
 .wrapper{width:800px;}
 #banner{width:100%;}
 #banner #logo{margin-right:15px;}
+#banner .fork{margin-left:-380px;}
 section{width:auto;max-width:738px;}
 nav{margin-left:-638px;}
 footer small{display:none;}
+@media print, screen and (max-width: 1165px) {
+    nav {display: none;}
+}
 @media print, screen and (max-width: 1060px) {
     header h1,section h1,footer h1{font-size:28px;overflow:initial;white-space:initial;}
+}
+@media print, screen and (max-width: 800px) {
+    #banner .fork{float:left;display:inline-block;margin-left:0px;position:fixed;left:20px;}
 }
