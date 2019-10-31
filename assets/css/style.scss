@@ -10,7 +10,8 @@ code{font-family:Consolas,Lucida Sans,Monaco,Lucida Console,Terminal,monospace;t
 #banner #logo{margin-right:15px;}
 #banner .fork{margin-left:-380px;}
 section{width:auto;max-width:738px;}
-nav{margin-left:-638px;}
+nav{margin-left:-638px;text-align:initial;}
+kbd{border:1px solid #ccc;border-radius:2px;padding:2px 6px;}
 footer small{display:none;}
 @media print, screen and (max-width: 1165px) {
     nav {display: none;}
