@@ -1,0 +1,12 @@
+---
+---
+
+@import "{{ site.theme }}";
+body{color:#444;font-family:Quattrocento Sans,Helvetica Neue,Helvetica,Arial,sans-serif;}
+h1{font-size:36px;margin-bottom:30px;}
+code{font-family:Consolas,Lucida Sans,Monaco,Lucida Console,Terminal,monospace;text-shadow:none;white-space:pre-wrap;}
+.wrapper{width:800px;}
+section{width:auto;max-width:auto;}
+@media print, screen and (max-width: 1060px) {
+    header h1,section h1,footer h1{font-size:28px;overflow:initial;white-space:initial;}
+}
