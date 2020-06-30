@@ -14,5 +14,12 @@ echo "L+ /tmp/insomnia_7.0.1/2017-09-20.pem - - - - /etc/ssl/certs/ca-certificat
     > /usr/lib/tmpfiles.d/insomnia.conf
 systemd-tmpfiles --create /usr/lib/tmpfiles.d/insomnia.conf
 ```
+On Ubuntu:
+```bash
+echo "L+ /tmp/insomnia_$(dpkg -s insomnia | grep Version | awk '{print $2}')\
+/2017-09-20.pem - - - - /etc/ssl/certs/ca-certificates.crt" \
+    > /usr/lib/tmpfiles.d/insomnia.conf &&
+    systemd-tmpfiles --create /usr/lib/tmpfiles.d/insomnia.conf
+```
 
 Credits: [Force Insomnia to use the system trust store](https://kdecherf.com/blog/2018/07/13/force-insomnia-to-use-the-system-trust-store/)
