@@ -17,8 +17,8 @@ systemd-tmpfiles --create /usr/lib/tmpfiles.d/insomnia.conf
 ### On Ubuntu:
 * Install Insomnia by `apt`
 ```bash
-echo "deb [arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" |
-    sudo tee /etc/apt/sources.list.d/insomnia.list
+echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" \
+    | sudo tee /etc/apt/sources.list.d/insomnia.list
 apt update
 apt install insomnia
 ```
