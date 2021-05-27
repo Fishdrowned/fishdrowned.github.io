@@ -7,17 +7,25 @@ cp your-ca.crt /usr/local/share/ca-certificates/
 dpkg-reconfigure ca-certificates
 ```
 ## 2. Make Insomnia to use system CA
-Change the version number (i.e. <kbd>7.0.1</kbd>) accordingly:
+Change the version number (i.e. <kbd>2021.3.0</kbd>) accordingly:
 ```bash
-rm /tmp/insomnia_7.0.1/2017-09-20.pem
-echo "L+ /tmp/insomnia_7.0.1/2017-09-20.pem - - - - /etc/ssl/certs/ca-certificates.crt" \
+rm /tmp/insomnia_2021.3.0/ca-certs.pem
+echo "L+ /tmp/insomnia_2021.3.0/ca-certs.pem - - - - /etc/ssl/certs/ca-certificates.crt" \
     > /usr/lib/tmpfiles.d/insomnia.conf
 systemd-tmpfiles --create /usr/lib/tmpfiles.d/insomnia.conf
 ```
-On Ubuntu:
+### On Ubuntu:
+* Install Insomnia by `apt`
+```bash
+echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" |
+    sudo tee /etc/apt/sources.list.d/insomnia.list
+apt update
+apt install insomnia
+```
+* Update CA for Insomnia
 ```bash
 echo "L+ /tmp/insomnia_$(dpkg -s insomnia | grep Version | awk '{print $2}')\
-/2017-09-20.pem - - - - /etc/ssl/certs/ca-certificates.crt" \
+/ca-certs.pem - - - - /etc/ssl/certs/ca-certificates.crt" \
     > /usr/lib/tmpfiles.d/insomnia.conf &&
     systemd-tmpfiles --create /usr/lib/tmpfiles.d/insomnia.conf
 ```
